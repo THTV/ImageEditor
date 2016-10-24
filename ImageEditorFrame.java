@@ -8,15 +8,11 @@ import javax.imageio.*;
 public class ImageEditorFrame extends JFrame{
 	
 	 public ImageEditorFrame(){
-		 
+		 createMenuBar();
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 setSize(400, 300);
 		 setVisible(true);		 
 		 setTitle("fance title over 9000");
-	 }
-	 
-	 public static void main(String[]args){
-		JFrame imageEditorFrame = new ImageEditorFrame();
 	 }
 	 
 	 private void createMenuBar(){
@@ -35,8 +31,8 @@ public class ImageEditorFrame extends JFrame{
 			 }
 		 );
 	}
-	private void onOpen(){
-		JOptionPane.showMessageDialog(this, "Open Selected");
-	}
+				private void onOpen(){
+					JOptionPane.showMessageDialog(this, "Open Selected");
+				}
 
 }

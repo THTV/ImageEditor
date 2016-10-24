@@ -11,7 +11,7 @@ public class ImageEditorFrame extends JFrame{
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 setSize(400, 300);
 		 setVisible(true);
-		 setTitle("fance title > 9000");
+		 setTitle("fance title over 9000");
 	 }
 	 
 	 public static void main(String[]args){

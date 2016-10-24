@@ -6,15 +6,16 @@ import java.io.*;
 import javax.imageio.*;
 
 public class ImageEditorFrame extends JFrame{
-
+	
+	ImageEditorPanel panel = new ImageEditorPanel();
 	
 	 public ImageEditorFrame(){
 		 createMenuBar();
+		 setDummyImage();
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 setSize(400, 300);
 		 setVisible(true);
 		 setTitle("fancy title over 9000");
-		 ImageEditorPanel panel = new ImageEditorPanel();
 		 add(panel);	
 	 }
 

@@ -1,9 +1,19 @@
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
-import javax.imageio.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.IIOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class ImageEditorFrame extends JFrame{
 
@@ -17,16 +27,32 @@ public class ImageEditorFrame extends JFrame{
 		 ImageEditorPanel panel = new ImageEditorPanel();
 		 add(panel);	
 	 }
+	 
+	 private void onOpen1(){
+		 ImageEditorPanel panel = null;
+		 JFileChooser fileChooser = new JFileChooser();
+		 fileChooser.showOpenDialog(this);
+		 File file = fileChooser.getSelectedFile();
+		 BufferedImage image = null;
+		try {
+			image = ImageIO.read(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 panel.setImage(image);
+	 }
 
 	 private void setDummyImage(){ 
+		 	ImageEditorPanel panel = new ImageEditorPanel();
 	 		BufferedImage bufferedImage = 
-	 			new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB); 
+	 		new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB); 
 	 		Graphics g = bufferedImage.getGraphics(); 
 	 		g.setColor(Color.YELLOW); 
 	 		g.fillOval(10, 10, 380, 280); 
 	 		panel.setImage(bufferedImage); 
 		 	setVisible(true);		
-		 	setTitle("fance title over 9000");
+		 	setTitle("fancy title over 9000");
 	 }
 
 	 
@@ -41,7 +67,7 @@ public class ImageEditorFrame extends JFrame{
 		 menuItemOpen.addActionListener(
 			 new ActionListener() {
 				 public void actionPerformed(ActionEvent e){
-					 onOpen();
+					 onOpen1();
 				}
 			 }
 		 );
